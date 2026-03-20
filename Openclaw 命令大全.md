@@ -49,7 +49,7 @@ openclaw <command> --help
 
 # 示例：查看 config 命令帮助
 openclaw config --help
-~~~
+```
 
 ### 1.2 初始化配置
 
