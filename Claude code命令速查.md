@@ -1,4 +1,4 @@
-![image-20260327085703452](/Users/frank/Desktop/ai-invest/signana/learn-claw/pics/image-20260327085703452.png)
+![image-20260327085703452](./pics/image-20260327085703452.png)
 
 
 
