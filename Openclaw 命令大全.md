@@ -11,25 +11,7 @@
 
 ## 目录
 
-- [一、快速入门](#一快速入门)
-- [二、配置管理命令](#二配置管理命令)
-- [三、Gateway 控制命令](#三gateway-控制命令)
-- [四、消息发送命令](#四消息发送命令)
-- [五、技能管理命令](#五技能管理命令)
-- [六、模型配置命令](#六模型配置命令)
-- [七、频道管理命令](#七频道管理命令)
-- [八、会话管理命令](#八会话管理命令)
-- [九、节点管理命令（智能家居控制）](#九节点管理命令智能家居控制)
-- [十、记忆管理命令](#十记忆管理命令)
-- [十一、Cron 定时任务命令](#十一cron-定时任务命令)
-- [十二、系统命令](#十二系统命令)
-- [十三、插件管理命令](#十三插件管理命令)
-- [十四、浏览器控制命令](#十四浏览器控制命令)
-- [十五、更新与维护命令](#十五更新与维护命令)
-- [十六、常用组合命令](#十六常用组合命令)
-- [十七、故障排除命令](#十七故障排除命令)
-- [十八、生产环境最佳实践](#十八生产环境最佳实践)
-- [十九、快捷别名配置](#十九快捷别名配置)
+[TOC]
 
 ---
 
@@ -1003,9 +985,13 @@ EOF
 
 ## 十九、快捷别名配置
 
+
+
 ### 19.1 创建常用别名
 
-```bash
+
+
+```
 # 添加到 ~/.bashrc 或 ~/.zshrc
 alias oc='openclaw'
 alias ocg='openclaw gateway'
@@ -1019,9 +1005,13 @@ source ~/.bashrc  # Bash
 source ~/.zshrc   # Zsh
 ```
 
+
+
 ### 19.2 使用别名
 
-```bash
+
+
+```
 # 启动 Gateway
 ocg start
 
@@ -1035,7 +1025,50 @@ ocm --target @mychat --message "Hello"
 ocs
 ```
 
-------
+
+
+## 二十、Agent 管理命令
+
+### 20.1 增加删除 agent
+
+```bash
+# 列出所有 agent
+openclaw agents list — 列出所有 agent
+
+# 添加新 agent
+openclaw agents add <name> --workspace <path> — 
+
+# 删除指定 agent[1]
+openclaw agents delete <name> — 删除指定 agent[1]
+
+# 给 agent 发信息
+openclaw agent --agent planner --message "Hello, please introduce yourself"
+```
+
+### 
+
+### 20.2 手动删除 session 文件
+
+```bash
+# 查看某个 agent 的 sessions 目录
+ls ~/.openclaw/agents/<agentId>/sessions/
+
+# 删除特定 session 的 JSONL 文件
+rm ~/.openclaw/agents/<agentId>/sessions/<SessionId>.jsonl
+
+# 或者清空整个 agent 的 sessions 目录
+rm -rf ~/.openclaw/agents/<agentId>/sessions/
+
+# 也可以编辑 sessions.json 删除特定条目
+```
+
+
+
+
+
+---
+
+
 
 > 📝 **提示：** 本手册涵盖了 OpenClaw 日常使用中最常见的命令。如需查看完整命令列表，请运行 `openclaw --help`。
 
